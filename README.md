@@ -1,290 +1,283 @@
-# 🤖 Fundamentos de IA com Azure - Frontier Girls
+# Academic AI Agents — RAG e Multi-Agent Systems
 
-Bem-vinda ao repositório de fundamentos de Inteligência Artificial usando Azure! Este projeto foi criado para te ajudar a dar os primeiros passos no mundo da IA, usando ferramentas da Microsoft Azure.
+Este repositório apresenta **dois protótipos de agentes acadêmicos inteligentes** desenvolvidos com **Azure OpenAI, Microsoft Agent Framework e Python**.
 
-## 📚 Sobre este Projeto
+Os notebooks demonstram **duas arquiteturas complementares de agentes de IA**:
 
-Este repositório contém materiais práticos e didáticos para aprender:
-- Como se conectar com modelos de IA da Azure OpenAI
-- Como criar agentes inteligentes que realizam tarefas específicas
-- Como criar ferramentas (tools) para os agentes usarem
-- Como orquestrar múltiplos agentes para trabalharem juntos
+1. **Agente acadêmico com RAG (Retrieval-Augmented Generation)** para revisão textual baseada em documentos.
+2. **Sistema multiagente com tools externas e orquestração**, capaz de executar tarefas especializadas como revisão e indexação conceitual.
 
-## 🎯 Para Quem é Este Projeto?
-
-Este projeto é perfeito para você que:
-- **Já tem experiência com código**
-- ✨ Está começando a aprender sobre Inteligência Artificial
-- 🌱 Quer entender como usar IA na prática
-- 🔧 Deseja criar suas próprias aplicações de IA
-- 🚀 Quer explorar as ferramentas de IA da Microsoft Azure
-
-
-## 📋 Pré-requisitos
-
-Antes de começar, você vai precisar:
-
-### 1. Python instalado
-- Versão: Python 3.10 ou superior
-- [Download Python](https://www.python.org/downloads/)
-
-### 2. Conta na Azure
-- Crie uma conta gratuita: [Portal Azure](https://azure.microsoft.com/free/)
-- Você ganha créditos grátis para testar!
-
-### 3. Azure CLI instalado
-- Azure CLI (Command-Line Interface): Ferramenta essencial para autenticação com Azure
-- [Download Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli)
-- Após instalar, você precisará fazer login com `az login`
-
-### 4. Editor de Código
-- Visual Studio Code (recomendado): [Download VS Code](https://code.visualstudio.com/)
-- Extensão Jupyter para VS Code
-
-### 5. Conhecimentos Básicos
-- Python básico (variáveis, funções, imports)
-- Vontade de aprender! 🎓
-
-## 🚀 Como Começar
-
-**Clique em ctrl+' no VsCode para abrir o prompt de comando e rodar os seguintes codigos:**
-
-### Passo 1: Clone o Repositório
-
-```bash
-git clone https://github.com/Igomes01/azure_frontier_girls_fundamentos_ia.git
-cd azure_frontier_girls_fundamentos_ia
-```
-
-### Passo 2: Crie um Ambiente Virtual
-
-**Windows (PowerShell ou CMD):**
-```bash
-python -m venv .venv
-.venv\Scripts\activate
-```
-
-**Linux/Mac:**
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
-```
-
-### Passo 3: Faça Login no Azure CLI
-
-**Importante:** Este passo é essencial para autenticação!
-
-```bash
-az login
-```
-
-Este comando vai:
-- Abrir uma janela no navegador
-- Solicitar que você faça login com sua conta Azure
-- Autenticar sua máquina para usar os recursos do Azure
-
-**Nota:** Se você estiver usando o notebook `criacao_agentes.ipynb` que trabalha com agentes, o `az login` é **obrigatório** para que a autenticação funcione corretamente.
-
-### Passo 4: Instale as Dependências Python
-
-```bash
-pip install openai azure-ai-projects azure-identity agent-framework python-dotenv
-```
-
-Ou, alternativamente, use o arquivo `requirements.txt`:
-
-```bash
-pip install -r requirements.txt
-```
-
-### Passo 5: Configure suas Credenciais do Azure
-
-1. Crie um arquivo `.env` na raiz do projeto (já existe um modelo)
-2. Preencha com suas credenciais do Azure:
-
-```env
-AZURE_AI_PROJECT_ENDPOINT=seu-endpoint-aqui
-AZURE_AI_MODEL_DEPLOYMENT_NAME=nome-do-seu-modelo
-AZURE_MODEL_ENDPOINT=endpoint-do-modelo
-AZURE_AI_MODEL_API_KEY=sua-chave-api-aqui
-```
-
-### Passo 6: Abra os Notebooks
-
-Abra o VS Code na pasta do projeto e comece pelos notebooks na ordem:
-
-1. **`chat.ipynb`** - Introdução: seu primeiro chat com IA
-2. **`criacao_agentes.ipynb`** - Avançado: criando agentes inteligentes
-
-## 📖 Estrutura do Projeto
-
-```
-azure_frontier_girls_fundamentos_ia/
-│
-├── 📓 chat.ipynb                  # Notebook 1: Introdução ao Azure OpenAI
-├── 📓 criacao_agentes.ipynb       # Notebook 2: Criando Agentes Inteligentes
-├── 📄 .env                        # Suas credenciais Azure (não compartilhar!)
-├── 📁 .venv/                      # Ambiente virtual Python
-└── 📄 README.md                   # Este arquivo
-```
-
-## 📓 Notebooks
-
-### 1️⃣ chat.ipynb - Seu Primeiro Chat com IA
-
-**O que você vai aprender:**
-- Como se conectar ao Azure OpenAI
-- Como fazer sua primeira chamada para um modelo de IA
-- Como personalizar as respostas da IA
-- Entender os parâmetros básicos (temperature, tokens, etc.)
-
-**Tempo estimado:** 15-20 minutos
-
-**Conceitos-chave:**
-- API e Endpoints
-- Modelos de linguagem (GPT)
-- Roles (system, user, assistant)
-- Parâmetros de geração de texto
+O objetivo é explorar o uso de **Large Language Models (LLMs)** para apoiar tarefas de **análise documentária, revisão acadêmica e organização do conhecimento**.
 
 ---
 
-### 2️⃣ criacao_agentes.ipynb - Criando Agentes Inteligentes
+# Estrutura do Repositório
 
-**O que você vai aprender:**
-- O que são agentes de IA
-- Como criar agentes especializados (matemática, viagens, receitas)
-- Como dar ferramentas aos agentes (Tools)
-- Como criar um orquestrador que gerencia múltiplos agentes
-
-**Tempo estimado:** 40-50 minutos
-
-**Conceitos-chave:**
-- Agentes especializados
-- Instructions (instruções personalizadas)
-- Tools (ferramentas que os agentes podem usar)
-- Orquestração de agentes
-- Programação assíncrona (async/await)
-
-**Exemplos práticos:**
-- ✅ Agente de matemática que explica cálculos
-- ✅ Agente de viagens que fala como pirata
-- ✅ Agente de receitas que salva arquivos
-- ✅ Orquestrador que escolhe o agente certo automaticamente
-
-## 🔑 Como Obter suas Credenciais do Azure
-
-### Passo a Passo Detalhado:
-
-1. **Acesse o Portal Azure**
-   - Vá para [portal.azure.com](https://portal.azure.com)
-   - Faça login com sua conta
-
-2. **Crie um Recurso Azure OpenAI**
-   - Clique em "Create a resource"
-   - Busque por "Azure OpenAI"
-   - Clique em "Create"
-   - Escolha sua assinatura e crie um resource group
-
-3. **Deploy um Modelo**
-   - Após criar o recurso, vá em "Model deployments"
-   - Clique em "Create new deployment"
-   - Escolha um modelo (ex: gpt-4, gpt-35-turbo)
-   - Dê um nome ao deployment (ex: "gpt-4.1")
-
-4. **Obtenha suas Credenciais**
-   - No recurso Azure OpenAI, vá em "Keys and Endpoint"
-   - Copie:
-     - `Endpoint` → vai para `AZURE_MODEL_ENDPOINT`
-     - `Key` → vai para `AZURE_AI_MODEL_API_KEY`
-   - O nome do deployment que você criou → vai para `AZURE_AI_MODEL_DEPLOYMENT_NAME`
-
-5. **Para Azure AI Foundry (opcional para agentes)**
-   - Acesse [ai.azure.com](https://ai.azure.com)
-   - Crie um projeto
-   - Copie o endpoint do projeto → vai para `AZURE_AI_PROJECT_ENDPOINT`
-
-## 🛠️ Troubleshooting (Solucionando Problemas)
-
-### Erro: "Azure CLI not found" ou "az command not found"
-**Solução:** 
-- Certifique-se de que instalou o Azure CLI: [Download Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli)
-- Após instalar, **reinicie o terminal/prompt de comando**
-- Teste executando: `az --version`
-
-### Erro: "Please run 'az login' to setup account" ou problemas de autenticação nos notebooks
-**Solução:** 
-- Execute `az login` no terminal
-- Uma janela do navegador vai abrir para você fazer login
-- Após fazer login, volte ao terminal e tente novamente
-- Isso é **obrigatório** para usar o notebook `criacao_agentes.ipynb`
-
-### Erro: "Module not found"
-**Solução:** Certifique-se de que o ambiente virtual está ativado e instale novamente:
-```bash
-pip install openai azure-ai-projects azure-identity agent-framework python-dotenv
 ```
 
-### Erro: "Authentication failed"
-**Solução:** 
-- Verifique se suas credenciais no arquivo `.env` estão corretas
-- Certifique-se de não ter espaços extras
-- Verifique se a chave API não expirou
-- Se estiver usando agentes, certifique-se de ter executado `az login`
+academic-ai-agents
+│
+├── agent_academico_rag.ipynb
+├── agent_academico_tool.ipynb
+│
+├── indexacao.xlsx
+│
+└── README.md
 
-### Erro: "Rate limit exceeded"
-**Solução:** 
-- Você atingiu o limite de chamadas da API
-- Aguarde alguns minutos ou verifique sua quota no Portal Azure
+```
 
-### Erro: "Deployment not found"
-**Solução:**
-- Verifique se o nome do deployment no `.env` está correto
-- Verifique se o deployment está ativo no Portal Azure
+O repositório contém **dois notebooks principais**, cada um demonstrando uma arquitetura distinta de agentes.
 
-## 💡 Dicas para Aprender
+---
 
-1. **Execute cada célula em ordem** - Os notebooks são sequenciais
-2. **Experimente modificar o código** - Mude as perguntas, as instruções dos agentes
-3. **Leia os comentários** - Eles explicam cada linha de código
-4. **Teste com suas próprias ideias** - Crie agentes personalizados!
-5. **Não tenha medo de errar** - Erros fazem parte do aprendizado
+# Projeto 1 — agent_academico_rag
 
-## 📚 Recursos Adicionais
+## Objetivo
 
-### Documentação Oficial
-- [Azure OpenAI Service](https://learn.microsoft.com/azure/ai-services/openai/)
-- [Microsoft Agent Framework](https://github.com/microsoft/agent-framework)
-- [Azure AI Foundry](https://learn.microsoft.com/azure/ai-studio/)
+Criar um **agente de revisão acadêmica baseado em RAG (Retrieval-Augmented Generation)** capaz de corrigir e melhorar textos utilizando um **documento de referência como contexto**.
 
-### Tutoriais e Guias
-- [Quickstart Azure OpenAI](https://learn.microsoft.com/azure/ai-services/openai/quickstart)
-- [Python para Iniciantes](https://learn.microsoft.com/training/paths/beginner-python/)
+O agente não responde apenas com base no modelo, mas também consulta um **documento base indexado semanticamente**.
 
-### Comunidade
-- [Microsoft Learn](https://learn.microsoft.com/)
-- [Azure Community](https://techcommunity.microsoft.com/azure)
+## Como funciona
 
-## 🤝 Como Contribuir
+Pipeline do sistema:
 
-Quer ajudar a melhorar este projeto? Toda contribuição é bem-vinda!
+```
 
-1. Faça um Fork do projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/MinhaFeature`)
-3. Commit suas mudanças (`git commit -m 'Adiciona MinhaFeature'`)
-4. Push para a branch (`git push origin feature/MinhaFeature`)
-5. Abra um Pull Request
+PDF de referência
+↓
+Extração de texto
+↓
+Divisão em chunks
+↓
+Embeddings (Azure OpenAI)
+↓
+Busca semântica
+↓
+Contexto recuperado
+↓
+Agente de revisão acadêmica
 
-## ⚠️ Importante - Segurança
+```
 
-- **NUNCA** compartilhe seu arquivo `.env` ou suas chaves API
-- **NUNCA** faça commit do `.env` no GitHub
-- Use sempre variáveis de ambiente para credenciais
-- Se você expôs uma chave acidentalmente, revogue-a imediatamente no Portal Azure
+## Capacidades do agente
 
-## 🎉 Vamos Começar!
+O agente é capaz de:
 
-Pronta para começar sua jornada em IA? Abra o notebook `chat.ipynb` e vamos lá! 🚀
+- corrigir erros gramaticais
+- melhorar clareza e coesão textual
+- manter rigor acadêmico
+- enriquecer o texto usando o contexto recuperado
+- evitar geração de informações não presentes no documento
 
-Se tiver dúvidas, não hesite em abrir uma issue no GitHub!
+Esse modelo segue o padrão **RAG (Retrieval-Augmented Generation)**.
 
-**Bom aprendizado! 📚✨**
+---
+
+# Projeto 2 — agent_academico_tool
+
+## Objetivo
+
+Demonstrar uma **arquitetura multiagente baseada em ferramentas (tools)**.
+
+Nesse sistema, diferentes agentes possuem papéis específicos e podem ser coordenados por um **orquestrador**.
+
+## Arquitetura
+
+```
+
+Usuário
+│
+▼
+Orquestrador
+│
+┌─┴─────────────┐
+▼               ▼
+Extrator      Revisor
+(conceitos)   (texto)
+│
+▼
+Tool Python
+(salvar_indexacao_planilha)
+│
+▼
+Planilha Excel
+
+```
+
+## Componentes
+
+### Agente Extrator
+
+Responsável por:
+
+- extrair palavras-chave
+- identificar conceitos principais
+- identificar termos indexadores
+
+Após a análise, o agente chama uma **tool Python** que salva a indexação em Excel.
+
+---
+
+### Agente Revisor
+
+Responsável por:
+
+- corrigir gramática
+- melhorar clareza e coesão
+- manter estilo acadêmico
+
+---
+
+### Orquestrador
+
+O orquestrador decide **qual agente deve ser utilizado** com base na solicitação do usuário.
+
+Exemplos:
+
+| Solicitação | Agente usado |
+|---|---|
+| Revisar texto | Revisor |
+| Extrair conceitos | Extrator |
+| Indexação | Extrator |
+
+Esse modelo demonstra **coordenação entre múltiplos agentes especializados**.
+
+---
+
+# Tecnologias Utilizadas
+
+- Python
+- Azure OpenAI
+- Azure AI Foundry
+- Microsoft Agent Framework
+- Async/Await
+- Embeddings
+- Busca vetorial
+- Retrieval-Augmented Generation (RAG)
+- openpyxl
+
+---
+
+# Instalação
+
+Clone o repositório:
+
+```
+
+git clone [https://github.com/SEU-USUARIO/academic-ai-agents.git](https://github.com/SEU-USUARIO/academic-ai-agents.git)
+
+```
+
+Entre na pasta:
+
+```
+
+cd academic-ai-agents
+
+```
+
+Crie o ambiente virtual:
+
+```
+
+python -m venv .venv
+
+```
+
+Ative o ambiente:
+
+Windows
+
+```
+
+.venv\Scripts\activate
+
+```
+
+Linux / Mac
+
+```
+
+source .venv/bin/activate
+
+```
+
+Instale as dependências:
+
+```
+
+pip install openpyxl
+pip install azure-ai-projects
+pip install azure-identity
+pip install python-dotenv
+
+```
+
+---
+
+# Como Executar
+
+Abra os notebooks:
+
+```
+
+agent_academico_rag.ipynb
+
+```
+
+ou
+
+```
+
+agent_academico_tool.ipynb
+
+```
+
+Execute as células sequencialmente.
+
+---
+
+# Objetivo Científico
+
+Este projeto explora o uso de **agentes baseados em LLMs** para apoiar processos típicos da **organização do conhecimento**, incluindo:
+
+- análise documentária
+- extração terminológica
+- indexação conceitual
+- revisão acadêmica assistida por IA
+
+---
+
+# Possíveis Extensões
+
+O sistema pode evoluir para:
+
+- integração com **Azure AI Search**
+- agentes com **memória persistente**
+- revisão acadêmica multi-etapas
+- geração automática de **vocabulários SKOS**
+- integração com **ontologias OWL**
+- aplicações multimodais para **texto, imagem e vídeo**
+
+---
+
+# Autoria
+
+**Denise Cavalcante**
+
+Pesquisa em:
+
+- Organização do Conhecimento
+- Ontologias
+- Anotação Semântica
+- Inteligência Artificial aplicada à indexação
+
+---
+
+# Licença
+
+Projeto experimental para fins educacionais e de pesquisa.
+```
+
+
